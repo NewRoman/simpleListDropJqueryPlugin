@@ -1,0 +1,194 @@
+// стили для плагина _simple-list-drop.js
+// если необходимо изменить стилизацию то следует эти стили оставить как есть 
+// а стилизацию задавать переопределяя стили из этого файла в другом файле(к примеру в header/header.less)
+
+.simple-list-drop-container {
+	position: relative;
+}
+
+.simple-list-drop-container [role="show-list-drop"] {
+	position: relative;
+
+	height: 25px; 
+	padding-top: 5px;
+
+	border-bottom: 2px #BBB solid;
+	cursor: pointer;
+
+	font-size: 15px;
+	// color: @danube;
+
+	
+
+	// не показывать в статусе картинку
+	&.no-img {
+		input {
+			padding-left: 0;
+		}
+
+		[data-simpledrop-thumb] {
+			display: none;
+		}
+	} 
+
+	[data-simpledrop-thumb] {
+		position: absolute;
+		top: 9px;
+		left: 5px;
+
+		img,
+		.img {
+			min-width: 16px;
+			min-height: 11px;
+			max-width: 20px;
+			margin-right: 5px;
+
+		}
+	}
+
+	&.disabled {
+		pointer-events: none;
+		cursor: default;
+		color: #333;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	input {
+		padding-left: 30px;
+		padding-right: 30px;
+		width: 100%;
+
+		border: none;
+		background: transparent; 
+		cursor: pointer;
+
+		font-size: 15px;
+
+		// color: @_link_color;
+		&:focus {
+			outline: none;
+			border: none;
+		}
+	}
+
+	input[disabled='disabled'],
+	input:disabled {
+		-webkit-appearance: none;// отменяем дефолтную стилизацию инпутов в Safari https://www.daretothink.co.uk/stop-ios-styling-your-input-fields-and-buttons/
+		
+		// отменяем дефолтную стилизацию инпутов в Safari https://stackoverflow.com/questions/262158/disabled-input-text-color
+		-webkit-text-fill-color: #333;
+		// -webkit-user-select: auto;
+		// user-select: auto;
+		opacity: 1!important;
+	}
+
+	&::after {
+	    content: ''; 
+
+	    position: absolute;
+	    right: 4px; 
+	    top: 15px;
+
+		border:4px solid transparent;
+		border-top: 4px solid #000;
+	}
+} 
+// при открывании списка повернуть стрелку вверх
+.simple-list-drop-container.active [role="show-list-drop"]::after {
+	border-bottom: 4px solid #000;
+	border-top: none;
+}
+
+.simple-list-drop-container .list-drop-active {
+	color:  #ababab;
+}
+
+.simple-list-drop-container .simple-list-drop {
+	position: absolute;
+	top: 100%;
+	z-index: 49; 
+
+	display: none;
+	width: 100%;
+
+	margin: 0;
+	padding: 0;
+	max-height: 325px;
+	overflow: auto;
+	width: 100%;
+
+	list-style-type: none;
+	border: 1px #BBB solid;
+	background: #FFF;
+
+	// @media screen and (max-width: 767px) {
+	// 	max-height: 280px;
+	// }
+
+	.simple-list-item.hide {
+		display: none; 
+	}
+	
+	.simple-list-item:not(.divider) {
+		padding: 4px 20px 5px 15px;
+
+		font-size: 15px;
+
+		.img, img {
+			// vertical-align: text-top;
+		    display: inline-block;
+			max-width: 20px; 
+		    // height: 17px;
+			margin-right: 10px;
+		}
+
+		&:hover {
+			@media screen and (min-width: 1025px) {
+				cursor: pointer;
+				background-color: #cecece;
+			}
+		}
+
+		
+		&.highlight {
+			cursor: pointer;
+			background-color: #cecece;
+		}
+	}
+ 
+	li.active { 
+		background: #cecece url("../img/check.png?2") no-repeat right center;
+	}
+
+	// подпись и кнопка для подгрупп списка
+	li.group-name {
+		padding: 6px 20px 6px 25px; 
+
+		color: #333;
+		font-size: 14px;
+		font-weight: 600;
+
+		// &[role="show-all-items"] {
+		// 	color: @_link_color;
+		// }
+	}
+
+	// линия разделитель в выпадающих списках
+	li.divider {
+		display: block;
+		height: 1px;
+		margin: 5px auto;
+		width: 92%;
+
+		background: #999;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.simple-list-drop-container .simple-list-drop { 
+		max-height: 255px;
+	}
+}

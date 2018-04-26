@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple list drop plugin</title>
+    
+	<link href="css/simple-list-drop.min.css" rel="stylesheet">
+	<style>
+		body {
+			background-image: url('img/bg.jpg');
+
+			color: #333;
+		}
+		h2 {
+			padding: 5px 10px;
+			margin: 25px auto 15px auto;
+			width: 900px;
+
+			background-color: #FFF;
+
+			text-align: center;
+			
+		}
+		.left-main,
+		.right-main {
+			float: left;
+			vertical-align: top;
+			margin-right: 40px;
+			width: 400px;
+		}
+		p {
+			margin-bottom: 26px;
+			font-size: 18px;
+		}
+		.code {
+			padding: 15px 10px;
+			background: #EEE;
+		}
+		.right-main {
+			float: right;
+			margin-right: 0;
+		}
+		.outer {
+			width: 900px;
+			margin: 25px auto;
+			padding: 25px 20px;
+
+			border: 1px solid #444;
+			background-color: #FFF;
+		}
+		.clear {
+			clear: both;
+		}
+	</style>
+  </head>
+  <body>
+
+	<h2>Simple drop plugin</h2>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop" style="width: 300px;">
+
+				<div class="simple-list-drop-container" id="default_drop" >
+					<div class="list-drop-active" role="show-list-drop">
+						<input type="text" class="active-status" placeholder="">
+					</div>
+			
+					<ul class="simple-list-drop js-simple-list-drop">
+
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="germany"
+							data-simpledrop-text="Germany"
+						>
+							Germany
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="usa"
+							data-simpledrop-text="USA"
+						>
+							USA
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="ukraine"
+							data-simpledrop-text="Ukraine"
+						>
+							Ukraine
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="poland"
+							data-simpledrop-text="Poland"
+						>
+							Poland
+						</li>
+						<li
+							class="simple-list-item active  "
+							data-simpledrop-value="france"
+							data-simpledrop-text="France"
+						>
+							France
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="italy"
+							data-simpledrop-text="Italy"
+						>
+							Italy
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="spain"
+							data-simpledrop-text="Spain"
+						>
+							Spain
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					Init plugin with default options
+			</p>
+			<div class="code">
+				$('.simple-list-drop-container').simple_list_drop();
+			</div>
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop" style="width: 300px;">
+
+				<div class="simple-list-drop-container" id="default_drop_sublist" >
+					<div class="list-drop-active" role="show-list-drop">
+						<input type="text" class="active-status" placeholder="">
+					</div>
+			
+					<ul class="simple-list-drop js-simple-list-drop">
+
+						<li class="group-name">Main country</li>
+
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="germany"
+							data-simpledrop-text="Germany"
+						>
+							Germany
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="usa"
+							data-simpledrop-text="USA"
+						>
+							USA
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="ukraine"
+							data-simpledrop-text="Ukraine"
+						>
+							Ukraine
+						</li>
+
+						<li class="group-name">Other country</li>
+
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="poland"
+							data-simpledrop-text="Poland"
+						>
+							Poland
+						</li>
+						<li
+							class="simple-list-item active  "
+							data-simpledrop-value="france"
+							data-simpledrop-text="France"
+						>
+							France
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="italy"
+							data-simpledrop-text="Italy"
+						>
+							Italy
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="spain"
+							data-simpledrop-text="Spain"
+						>
+							Spain
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					List with sub lists
+			</p>
+			<div class="code">
+				$('.simple-list-drop-container').simple_list_drop();
+			</div>
+			and added some extra tags in HTML
+			<div class="code">
+				&lt;li class="group-name"&gt;Other country&lt;/li&gt;
+			</div>
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop" style="width: 300px;">
+
+				<div class="simple-list-drop-container" id="default_drop_thumb" >
+					<div class="list-drop-active" role="show-list-drop">
+						
+						<input type="text" class="active-status" placeholder="">
+					</div>
+			
+					<ul class="simple-list-drop js-simple-list-drop">
+
+					
+
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="germany"
+							data-simpledrop-text="Germany"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/germany.png"/></span>
+							Germany
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="usa"
+							data-simpledrop-text="USA"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/usa.png"/></span>
+							USA
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="ukraine"
+							data-simpledrop-text="Ukraine"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/ukraine.png"/></span>
+							Ukraine
+						</li>
+
+						
+
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="poland"
+							data-simpledrop-text="Poland"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/poland.png"/></span>
+							Poland
+						</li>
+						<li
+							class="simple-list-item active  "
+							data-simpledrop-value="france"
+							data-simpledrop-text="France"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/france.png"/></span>
+							France
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="italy"
+							data-simpledrop-text="Italy"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/italy.png"/></span>
+							Italy
+						</li>
+						<li
+							class="simple-list-item  "
+							data-simpledrop-value="spain"
+							data-simpledrop-text="Spain"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/spain.png"/></span>
+							Spain
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					List with icon left
+			</p>
+			<div class="code">
+				$('.simple-list-drop-container').simple_list_drop({
+					isThumbnailShow: true
+				});
+			</div>
+			and added some extra tags in HTML
+			<div class="code">
+				add span(with <strong>[data-simpledrop-thumb]</strong>  attr and <strong>class="thumb"</strong> ) tag before text in list item with <strong>img</strong> tag
+			</div>
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop" style="width: 300px;">
+
+				<div class="simple-list-drop-container" id="default_drop_thumb_search" >
+					<div class="list-drop-active" role="show-list-drop">
+						
+						<input type="text" class="active-status" placeholder="">
+					</div>
+			
+					<ul class="simple-list-drop js-simple-list-drop">
+
+						<li
+							class="simple-list-item"
+							data-simpledrop-value="germany"
+							data-simpledrop-text="Germany"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/germany.png"/></span>
+							Germany
+						</li>
+						<li
+							class="simple-list-item"
+							data-simpledrop-value="usa"
+							data-simpledrop-text="USA"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/usa.png"/></span>
+							USA
+						</li>
+						<li
+							class="simple-list-item"
+							data-simpledrop-value="ukraine"
+							data-simpledrop-text="Ukraine"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/ukraine.png"/></span>
+							Ukraine
+						</li>
+
+						<li
+							class="simple-list-item"
+							data-simpledrop-value="poland"
+							data-simpledrop-text="Poland"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/poland.png"/></span>
+							Poland
+						</li>
+						<li
+							class="simple-list-item active"
+							data-simpledrop-value="france"
+							data-simpledrop-text="France"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/france.png"/></span>
+							France
+						</li>
+						<li
+							class="simple-list-item"
+							data-simpledrop-value="italy"
+							data-simpledrop-text="Italy"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/italy.png"/></span>
+							Italy
+						</li>
+						<li
+							class="simple-list-item"
+							data-simpledrop-value="spain"
+							data-simpledrop-text="Spain"
+						>
+							<span  data-simpledrop-thumb class="thumb"><img src="img/spain.png"/></span>
+							Spain
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					List with search in text content list(only strong match)
+			</p>
+			<div class="code">
+				$('.simple-list-drop-container').simple_list_drop({
+					searchInList: true
+				});
+			</div>
+			
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<script src="jquery.min.js"></script>
+	<script src="jquery.simple_list_drop.js"></script>
+	
+	<script>
+			$('#default_drop').simple_list_drop();
+			$('#default_drop_sublist').simple_list_drop();
+			$('#default_drop_thumb').simple_list_drop({
+				isThumbnailShow: true
+			});
+			$('#default_drop_thumb_search').simple_list_drop({
+				searchInList: true
+			});
+			
+			
+	</script>
+
+  </body>
+</html>
